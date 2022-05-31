@@ -54,6 +54,8 @@ struct TopMoviesView: View {
                                 .font(.callout)
                         }
                     }.listRowSeparator(.hidden)
+                }.task {
+                    
                 }
             }.navigationTitle("Movies")
         }
