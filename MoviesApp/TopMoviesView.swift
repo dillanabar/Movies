@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct TopMoviesView: View {
+    
+    @ObservedObject var dataMovies = ConexionManagerTopMovies()
+    
     var body: some View {
         
         NavigationView{
             List{
-                ForEach((1...10).reversed(), id: \.self) { numero in
+                ForEach(dataMovies.arrayTopMovies) { data in
                     LazyVStack{
                         ZStack(alignment: .bottomTrailing){
-                            AsyncImage(url: URL(string:"https://imdb-api.com/images/original/MV5BOTAxOTlmOTAtMjA0Yy00YjVjLWE3OTQtYjAzMWMxOTAwZTY1XkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_Ratio0.6751_AL_.jpg")){ image in
+                            AsyncImage(url: URL(string:data.image)){ image in
                                 
                                 image.resizable()
                                 
@@ -44,7 +47,7 @@ struct TopMoviesView: View {
                                 .font(.title)
                             Divider()
                             HStack{
-                                Text("Ranking \(numero)")
+                                Text("Ranking \(data.rank)")
                                     .bold()
                                 Spacer()
                                 Text("2022")
@@ -55,6 +58,14 @@ struct TopMoviesView: View {
                         }
                     }.listRowSeparator(.hidden)
                 }.task {
+                    do {
+                           
+                        try await dataMovies.fechDataTopMovies()
+                        
+                       } catch {
+                           print("Request failed with error: \(error)")
+                       }
+                       
                     
                 }
             }.navigationTitle("Movies")
