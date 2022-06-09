@@ -16,7 +16,25 @@ struct TopMoviesView: View {
         NavigationView{
             List{
                 ForEach(dataMovies.arrayTopMovies) { data in
+                    NavigationLink(destination: DetailMovieView(id: data.id)){
                     LazyVStack{
+                        
+                        VStack(alignment: .center, spacing: 20){
+                            Text(data.title)
+                                .font(.title)
+                            
+                            HStack{
+                                Text("Ranking: \(data.rank)")
+                                    .bold()
+                                Spacer()
+                                Text(data.year)
+                                    .bold()
+                                
+                            }
+                            
+                            
+                        }
+                        
                         ZStack(alignment: .bottomTrailing){
                             AsyncImage(url: URL(string:data.image)){ image in
                                 
@@ -25,7 +43,7 @@ struct TopMoviesView: View {
                             }placeholder:{
                                 ProgressView()
                             }
-                            .frame(width: 200, height: 300, alignment: .center)
+                            .frame(width: 200, height: 325, alignment: .center)
                             .cornerRadius(10)
                             .overlay(RoundedRectangle(cornerRadius: 10)
                                 .stroke(.black, lineWidth: 3))
@@ -37,38 +55,23 @@ struct TopMoviesView: View {
                                     .frame(width: 40 , height: 40, alignment: .center)
                                     .foregroundColor(.orange)
                                 
-                                Text("9.6")
+                                Text(data.imDBRating)
                                     .font(.title3)
                                     .padding()
                             }
                         }
-                        VStack(alignment: .center, spacing: 10){
-                            Text("Obi-Wan Kenobi")
-                                .font(.title)
-                            Divider()
-                            HStack{
-                                Text("Ranking \(data.rank)")
-                                    .bold()
-                                Spacer()
-                                Text("2022")
-                                    .bold()
-                            }
-                            Text("Se centra en Obi-Wan Kenobi 10 años después del final de las Guerras Clon, donde enfrentó su mayor derrota; la caída y corrupción de su mejor amigo y aprendiz de Jedi, Anakin Skywalker se convirtió en el malvado Lord Sith Darth Vader.")
-                                .font(.callout)
-                        }
-                    }.listRowSeparator(.hidden)
-                }.task {
-                    do {
-                           
-                        try await dataMovies.fechDataTopMovies()
+                        Divider()
                         
-                       } catch {
-                           print("Request failed with error: \(error)")
-                       }
-                       
-                    
+                    }.listRowSeparator(.hidden)
                 }
-            }.navigationTitle("Movies")
+            }
+            }
+            .navigationTitle("Movies")
+            
+            .task {
+                
+                await dataMovies.fechDataTopMovies()
+            }
         }
     }
 }

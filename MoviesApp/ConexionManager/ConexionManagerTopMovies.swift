@@ -15,28 +15,30 @@ final class ConexionManagerTopMovies: ObservableObject{
         case missingData
     }
     
-    @Published var arrayTopMovies = [ModelTopMovies.Item]()
+    @Published var  arrayTopMovies = [Item]()
+    @Published var isFetching = false
     
-    func fechDataTopMovies() async throws {
+    func fechDataTopMovies() async  {
         
-        guard let url = URL(string: "https://imdb-api.com/en/API/Top250Movies/k_fproltt9")
-        else{
-            throw TopMoviesFetcherError.invalidURL
-        }
-        
-        async let (moviesData, _) = URLSession.shared.data(from: url)
-        
+        guard let url = URL(string: "https://imdb-api.com/es/API/Top250Movies/k_fproltt9")
+        else{ fatalError("ErrorUrl") }
         do {
-            let decoder = JSONDecoder()
-            let dataTopMovies = try await decoder.decode(ModelTopMovies.self, from: moviesData)
+            isFetching = true
+            let (moviesData, _) = try await URLSession.shared.data(from: url)
             
-            print("Tengo datos:\(dataTopMovies)")
-        
-        self.arrayTopMovies = dataTopMovies.items
+            print(moviesData)
+            let decoder = JSONDecoder()
+            let dataMovies = try decoder.decode(ModelTopMovies.self, from: moviesData)
+            DispatchQueue.main.async {
+            self.arrayTopMovies = dataMovies.items
+            }
+           
             
         }catch{
-            
+            isFetching = false
             print("error:\(TopMoviesFetcherError.missingData)")
         }
     }
+    
 }
+
