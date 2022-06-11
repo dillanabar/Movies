@@ -24,8 +24,8 @@ final class ConexionManagerTopMovies: ObservableObject{
         else{ fatalError("ErrorUrl") }
         do {
             isFetching = true
-            let (moviesData, _) = try await URLSession.shared.data(from: url)
-            
+            let (moviesData,_) = try await URLSession.shared.data(from: url)
+
             print(moviesData)
             let decoder = JSONDecoder()
             let dataMovies = try decoder.decode(ModelTopMovies.self, from: moviesData)
