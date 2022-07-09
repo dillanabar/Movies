@@ -22,17 +22,13 @@ struct TopMoviesView: View {
                         VStack(alignment: .center, spacing: 20){
                             Text(data.title)
                                 .font(.title)
-                            
                             HStack{
                                 Text("Ranking: \(data.rank)")
                                     .bold()
                                 Spacer()
                                 Text(data.year)
                                     .bold()
-                                
                             }
-                            
-                            
                         }
                         
                         ZStack(alignment: .bottomTrailing){

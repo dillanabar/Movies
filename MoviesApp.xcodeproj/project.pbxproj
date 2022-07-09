@@ -13,9 +13,11 @@
 		9B1144A1284139530029188B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B1144A0284139530029188B /* Preview Assets.xcassets */; };
 		9B3CEDB928525B56009B7531 /* DetailMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3CEDB828525B56009B7531 /* DetailMovieView.swift */; };
 		9B58C541284767C4006DAC1F /* ConexionManagerTopMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B58C540284767C4006DAC1F /* ConexionManagerTopMovies.swift */; };
+		9B7DA13A2879F995003F8434 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7DA1392879F995003F8434 /* TabbarView.swift */; };
 		9B85BCC328549CEF009F84B5 /* ConexionManagerDetailMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B85BCC228549CEF009F84B5 /* ConexionManagerDetailMovie.swift */; };
 		9B85BCC528549D46009F84B5 /* ModelDetailMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B85BCC428549D46009F84B5 /* ModelDetailMovie.swift */; };
 		9B976A6528461AA6001CAA3E /* ModelTopMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B976A6428461AA6001CAA3E /* ModelTopMovies.swift */; };
+		9BCD2FA0285E21050070A0C4 /* ActorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCD2F9F285E21050070A0C4 /* ActorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,10 +28,12 @@
 		9B1144A0284139530029188B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9B3CEDB828525B56009B7531 /* DetailMovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieView.swift; sourceTree = "<group>"; };
 		9B58C540284767C4006DAC1F /* ConexionManagerTopMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConexionManagerTopMovies.swift; sourceTree = "<group>"; };
+		9B7DA1392879F995003F8434 /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		9B85BCC228549CEF009F84B5 /* ConexionManagerDetailMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConexionManagerDetailMovie.swift; sourceTree = "<group>"; };
 		9B85BCC428549D46009F84B5 /* ModelDetailMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDetailMovie.swift; sourceTree = "<group>"; };
 		9B976A6428461AA6001CAA3E /* ModelTopMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTopMovies.swift; sourceTree = "<group>"; };
 		9BC6C6DA285125780065D20C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9BCD2F9F285E21050070A0C4 /* ActorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +68,10 @@
 			children = (
 				9BC6C6DA285125780065D20C /* Info.plist */,
 				9B114499284139500029188B /* MoviesAppApp.swift */,
+				9B7DA1392879F995003F8434 /* TabbarView.swift */,
 				9B11449B284139500029188B /* TopMoviesView.swift */,
 				9B3CEDB828525B56009B7531 /* DetailMovieView.swift */,
+				9BCD2F9F285E21050070A0C4 /* ActorView.swift */,
 				9B976A6728461E05001CAA3E /* ConexionManager */,
 				9B976A6628461DA5001CAA3E /* Model */,
 				9B11449D284139530029188B /* Assets.xcassets */,
@@ -170,12 +176,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B7DA13A2879F995003F8434 /* TabbarView.swift in Sources */,
 				9B3CEDB928525B56009B7531 /* DetailMovieView.swift in Sources */,
 				9B976A6528461AA6001CAA3E /* ModelTopMovies.swift in Sources */,
 				9B58C541284767C4006DAC1F /* ConexionManagerTopMovies.swift in Sources */,
 				9B11449C284139500029188B /* TopMoviesView.swift in Sources */,
 				9B85BCC528549D46009F84B5 /* ModelDetailMovie.swift in Sources */,
 				9B85BCC328549CEF009F84B5 /* ConexionManagerDetailMovie.swift in Sources */,
+				9BCD2FA0285E21050070A0C4 /* ActorView.swift in Sources */,
 				9B11449A284139500029188B /* MoviesAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
