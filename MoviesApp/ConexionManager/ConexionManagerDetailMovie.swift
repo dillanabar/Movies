@@ -19,7 +19,6 @@ final class ConexionManagerDetailMovie: ObservableObject  {
         
         do {
             let (dataDetailMovie, _) = try await URLSession.shared.data(from: url)
-            print(dataDetailMovie)
             let decoder = JSONDecoder()
             let model = try decoder.decode(ModelDetailMovie.self, from: dataDetailMovie)
             DispatchQueue.main.async {

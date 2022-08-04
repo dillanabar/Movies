@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+// MARK: - ModelDetailMovie
 
 struct ModelDetailMovie: Codable, Identifiable {
     
@@ -17,12 +17,15 @@ struct ModelDetailMovie: Codable, Identifiable {
     let runtimeMins: String
     let runtimeStr: String
     let year: String
+    let plot: String
     let plotLocal: String
     let awards: String
     let directors: String
     let imDbRating: String
     let actorList: [ActorList]
 }
+
+// MARK: - ActorList
 
 struct ActorList: Codable ,Identifiable{
     

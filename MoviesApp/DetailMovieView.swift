@@ -42,7 +42,7 @@ struct DetailMovieView: View {
                 Text(modelDetailMovie.model?.title ?? "No data")
                     .font(.title)
                     .bold()
-                Text(modelDetailMovie.model?.plotLocal ?? "No data")
+                Text(modelDetailMovie.model?.plotLocal ?? modelDetailMovie.model?.plot ?? "No data")
                     .font(.body)
                     .padding()
                
@@ -70,7 +70,7 @@ struct DetailMovieView: View {
                         .bold()
                         .padding()
                     if let actorList = modelDetailMovie.model?.actorList{
-                        ActorView(actorList: actorList)
+                        ActorListView(actorList: actorList)
                             .padding()
                     }
                 }

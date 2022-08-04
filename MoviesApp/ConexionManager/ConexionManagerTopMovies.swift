@@ -25,8 +25,6 @@ final class ConexionManagerTopMovies: ObservableObject{
         do {
             isFetching = true
             let (moviesData,_) = try await URLSession.shared.data(from: url)
-            
-            print(moviesData)
             let decoder = JSONDecoder()
             let dataMovies = try decoder.decode(ModelTopMovies.self, from: moviesData)
             DispatchQueue.main.async {
