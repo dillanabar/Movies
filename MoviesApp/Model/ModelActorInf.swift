@@ -11,7 +11,7 @@ import Foundation
 // MARK: - ModelActorInf
 
 
-struct ModelActorInf: Codable {
+struct ModelActorInf: Codable ,Identifiable {
     
     let id: String
     let name:  String
@@ -31,7 +31,7 @@ struct ModelActorInf: Codable {
     
 }
 
-struct ListMovies: Codable
+struct ListMovies: Codable ,Identifiable
 {
     let id: String
     let title: String

@@ -26,6 +26,7 @@ struct ActorListView: View {
                         Text(actorList.name)
                             .font(.caption)
                             .bold()
+        
                     }
                     
                         

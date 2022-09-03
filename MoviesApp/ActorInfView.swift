@@ -25,6 +25,7 @@ struct ActorInfView: View {
                 .frame(width:200,height: 200, alignment: .center)
                 .clipShape(Circle())
             }
+            
             Text(modelManagerActorInfo.model?.name ?? "No mame")
                 .font(.title)
                 .bold()
@@ -35,6 +36,11 @@ struct ActorInfView: View {
                 .foregroundColor(.gray)
                 .bold()
                 .padding()
+            Divider()
+                .padding()
+            if let data = modelManagerActorInfo.model?.listMovies{
+            ActorListMoviesView(listMovies: data)
+            }
             Spacer()
                 .navigationTitle("Actor Info")
                 .task {
