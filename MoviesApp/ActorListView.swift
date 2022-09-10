@@ -10,27 +10,35 @@ import SwiftUI
 struct ActorListView: View {
     @State var actorList: [ActorList]
     var body: some View {
-        ScrollView(.horizontal){
-            HStack(alignment: .center){
+        ScrollView(.vertical){
+            VStack(alignment: .leading){
                 ForEach(actorList){ actorList in
-                    VStack(alignment: .center, spacing: 20){
+                    HStack(alignment: .center, spacing: 20){
                         NavigationLink(destination: ActorInfView(id: actorList.id)){
-                        AsyncImage(url: URL(string: actorList.image)){ image in
-                            image.resizable()
-                        }placeholder:{
-                            ProgressView()
+                            AsyncImage(url: URL(string: actorList.image)){ image in
+                                image.resizable()
+                            }placeholder:{
+                                ProgressView()
+                            }
+                            .frame(width:90,height: 90, alignment: .center)
+                            .clipShape(Circle())
                         }
-                        .frame(width:90,height: 90, alignment: .center)
-                        .clipShape(Circle())
-                    }
-                        Text(actorList.name)
-                            .font(.caption)
-                            .bold()
-        
+                        VStack(alignment: .leading, spacing: 5){
+                            Text(actorList.name)
+                                .font(.system(size:14, weight: .bold, design: .rounded))
+                                .bold()
+                            Text(actorList.asCharacter)
+                                .font(.system(size:10, weight: .bold, design: .rounded))
+                                .foregroundColor(.gray)
+                            
+                            
+                        }
+                        
+                        
                     }
                     
-                        
-                   
+                    
+                    
                 }
             }
         }

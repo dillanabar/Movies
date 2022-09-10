@@ -39,7 +39,7 @@ struct TopMoviesView: View {
                             }placeholder:{
                                 ProgressView()
                             }
-                            .frame(width: 200, height: 325, alignment: .center)
+                            .frame(width: 225, height: 350, alignment: .center)
                             .cornerRadius(10)
                             .overlay(RoundedRectangle(cornerRadius: 10)
                                 .stroke(.black, lineWidth: 3))
